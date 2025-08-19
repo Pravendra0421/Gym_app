@@ -1,0 +1,14 @@
+import { initializeApp, cert, ServiceAccount } from "firebase-admin/app";
+import { getAuth } from "firebase-admin/auth";
+
+const serviceAccount: ServiceAccount = {
+  projectId: "gymapp-dab41",
+  clientEmail: "firebase-adminsdk-fbsvc@gymapp-dab41.iam.gserviceaccount.com",
+  privateKey:
+    "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAl2Wm2kngANEl\nynPCjCF9FXtTUkyLR+NP8wZxa0F9Nmhi+7Nu8nBykjc/Gk1xk5ziJMacfyrXatfd\nJtXsszhA2wGf1Wz5A/7rlNWgpbj7KFGbFeWJW2t1ePDQYxlHxbFpt91as1zdZrrZ\nDmKcem4XGxqXPwQ2aFsjnJxa5rV0NYQmxxuvOu+qiV4mo2I40ucbBL9L24IPx8mr\n2eIGTwVErQEE2IsgiTUvqORrLxTSXwRup/SczDYRhtAKHKV+StgtsGUTT9Catya2\nbmrYQuL0wuo1uKUIXxVEJ9B98VL320v7W3uteVSaSkIjLJ9NkhpDSgwAVQ6HO4JA\ngfLy9niTAgMBAAECggEATAv8EZRkU1U/QKLebtWSa6fN2KrImr66HVmjE6n8ZArV\n0S/+PDLy/+qIchxatBxLeGh5HFaCfiksL6EkG6Dw93sC+y/1JabURAWzDQojLtlO\nz+QnjMNSfUJSJJbc5qBDW7FEcIoegzYLVaX+fjdBvVHwgARcD3fJdRhkDOjIgafn\nNPk+5sHwgM3bskFyO4gg6syECOhLnPrazrdtHkKOtEckBktwIqAgrHlWGEf4pB/b\nz4V5QUg+mVdE2A91rryANKy3dxSrSDemTNbILGyPQs3quAtM8DSLyTaZUXiSh0jm\nltH9y5+83d/HysJBRdBapQONrWfHUSGzF9d+kqjnoQKBgQD9QOKEzIPKfj0mafob\nQ+UnHl+FqiPWLjRG2f1Cw6WEleG/3e/OX/82agyYm+Hw+7yez/+b6Tc7au1wY3qG\n3EDNWENnm7H8dR6B83xuV23nR2o1aFD1cMdjjCBkoDrAj0HYuk7wH689Z7t7laun\nAiPiFuujB/huHsP41fxJCwG4WQKBgQDCrhgmlchOZd5x3VXCXee2Bppa1j5nMb2x\n7rTL1uVIqavQGvHGXfeDToD8rEftaJWdy8FJsmZYwMazF2zmcPNR1LlhEVNz5zRY\n+sSrGGEBde+7Ik2KPiEVFQ4QW+x3dm9UMbWzuLVAg0FCvSBMo1byk08W6WPNLEAs\n/AQqctpaywKBgQCrY33o4X9PSp+Xn6DjUs+B6cw7aSlXiW1Xha8fv8gEMmrUrh3c\nTJsq+BoOLXB65eKAl8MkgHAghfyqUqhZHDW+wjzboUKS17ANwfozsnduTaZS/oXL\nlMdbVzmU39ri9hBZ27wQRWES7WC0AlZob8pY96oAayR1Ydy+ShKyXACOAQKBgGC7\niJyDiEgMLf997wLpDh1QIppIIjG8cXlcFtHCMaNtS0XYXZInVrkT5Nun7wV0FgOW\nHrCzyE8JWrHaTe4i6YQboxEsPr80frpHwDkTn//NzhS58rViMaX8FETkqBaj7qVz\nHcnzWXx4u5Ch0M7Dyow1zfKgfUqRVkID5z4AW6cJAoGAA5AL9sSVA2ueNHIRKW5S\nKEOFEYD/V4MubKR8Ut4z6DwVFrlS8tFCrFZJB1DMKS407tADr1mG7TBBC+VOaJWk\nt+ACcVlmdZUehvh1QZniNkYMtImlXscadVgTvZBH0Jfub2FNaKCuuXkkWA6KoMVg\ncCDipSZ0bn0rSTaJnhCJwRI=\n-----END PRIVATE KEY-----\n",
+};
+
+initializeApp({
+  credential: cert(serviceAccount),
+});
+export const firebaseAuth = getAuth();
