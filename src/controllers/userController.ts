@@ -8,10 +8,10 @@ const userUsercase = new UserUseCase(userRepository);
 export class UserControllers {
   async createUser(req: Request, res: Response) {
     try {
-      const dummyUser = {
-        uid: `test-uid-${Date.now()}`,
-        email: `test-${Date.now()}@example.com`,
-      };
+      // const dummyUser = {                                      // this is only for backend testing
+      //   uid: `test-uid-${Date.now()}`,                     // this is only for backend testing
+      //   email: `test-${Date.now()}@example.com`,         // this is only for backend testing
+      // };                                                 // this is only for backend testing
       const firebaseUser = req.User!;
       // const firebaseUser = dummyUser; // this is only for backend testing
       const userDto: UserDto = {
