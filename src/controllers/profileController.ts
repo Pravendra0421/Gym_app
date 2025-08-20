@@ -1,8 +1,8 @@
-import { ProfileRepository } from "../Repository/userProfileRepository";
+import { ProfileRepository } from "../Repository/userProfileRepository.js";
 import { Request, Response } from "express";
-import { ProfileUseCase } from "../UseCase/ProfileUsecase";
-import { ProfileDto } from "../Dtos/userProfileDtos";
-import { USerRepository } from "../Repository/userRepository";
+import { ProfileUseCase } from "../UseCase/ProfileUsecase.js";
+import { ProfileDto } from "../Dtos/userProfileDtos.js";
+import { USerRepository } from "../Repository/userRepository.js";
 import { messaging } from "firebase-admin";
 
 const profileRepository = new ProfileRepository();

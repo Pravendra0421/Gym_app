@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { UserUseCase } from "../UseCase/UserUSecase";
-import { USerRepository } from "../Repository/userRepository";
+import { UserUseCase } from "../UseCase/UserUSecase.js";
+import { USerRepository } from "../Repository/userRepository.js";
 import { UserDto } from "../Dtos/userDtos";
 const userRepository = new USerRepository();
 const userUsercase = new UserUseCase(userRepository);

@@ -1,5 +1,5 @@
-import { ProfileDto } from "../Dtos/userProfileDtos";
-import { ProfileEntity } from "../Entity/userProfileEntity";
+import { ProfileDto } from "../Dtos/userProfileDtos.js";
+import { ProfileEntity } from "../Entity/userProfileEntity.js";
 import prisma from "../lib/prisma";
 
 export interface IProfileRepository {

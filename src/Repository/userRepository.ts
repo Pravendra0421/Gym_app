@@ -1,5 +1,5 @@
-import { UserDto } from "../Dtos/userDtos";
-import { UserEntity } from "../Entity/userEntity";
+import { UserDto } from "../Dtos/userDtos.js";
+import { UserEntity } from "../Entity/userEntity.js";
 import prisma from "../lib/prisma";
 
 export interface IUserRepository {
