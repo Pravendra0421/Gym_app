@@ -1,7 +1,7 @@
-import { IProfileRepository } from "../Repository/userProfileRepository";
-import { ProfileDto } from "../Dtos/userProfileDtos";
-import { ProfileEntity } from "../Entity/userProfileEntity";
-import { IUserRepository } from "../Repository/userRepository";
+import { IProfileRepository } from "../Repository/userProfileRepository.js";
+import { ProfileDto } from "../Dtos/userProfileDtos.js";
+import { ProfileEntity } from "../Entity/userProfileEntity.js";
+import { IUserRepository } from "../Repository/userRepository.js";
 export class ProfileUseCase {
   constructor(
     private profileRepository: IProfileRepository,

@@ -1,6 +1,6 @@
 import { UserDto } from "../Dtos/userDtos.js";
 import { UserEntity } from "../Entity/userEntity.js";
-import prisma from "../lib/prisma";
+import prisma from "../lib/prisma.js";
 
 export interface IUserRepository {
   create(data: UserDto): Promise<UserEntity>;

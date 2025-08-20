@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { firebaseAuth } from "../config/firebaseAdmin";
+import { firebaseAuth } from "../config/firebaseAdmin.js";
 import { DecodedIdToken } from "firebase-admin/auth";
 declare global {
   namespace Express {

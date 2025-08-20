@@ -1,6 +1,6 @@
-import { IUserRepository } from "../Repository/userRepository";
-import { UserDto } from "../Dtos/userDtos";
-import { UserEntity } from "../Entity/userEntity";
+import { IUserRepository } from "../Repository/userRepository.js";
+import { UserDto } from "../Dtos/userDtos.js";
+import { UserEntity } from "../Entity/userEntity.js";
 // firebaseAdmin side effects are applied via config import in index.ts
 
 export class UserUseCase {

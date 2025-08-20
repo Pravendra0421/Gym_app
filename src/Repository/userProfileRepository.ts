@@ -1,6 +1,6 @@
 import { ProfileDto } from "../Dtos/userProfileDtos.js";
 import { ProfileEntity } from "../Entity/userProfileEntity.js";
-import prisma from "../lib/prisma";
+import prisma from "../lib/prisma.js";
 
 export interface IProfileRepository {
   createProfile(data: ProfileDto, userId: string): Promise<ProfileEntity>;
