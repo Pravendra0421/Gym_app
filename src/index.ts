@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 dotenv.config();
 import express, { Request, Response } from "express";
-import ConnectDb from "./config/databse.js";
-import "./config/firebaseAdmin";
+import ConnectDb from "./config/database.js";
+import "./config/firebaseAdmin.js";
 import prisma from "./lib/prisma";
 import authRoutes from "./routes/userRoute";
 import cors from "cors";
