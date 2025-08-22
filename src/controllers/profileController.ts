@@ -3,7 +3,6 @@ import { Request, Response } from "express";
 import { ProfileUseCase } from "../UseCase/ProfileUsecase.js";
 import { ProfileDto } from "../Dtos/userProfileDtos.js";
 import { USerRepository } from "../Repository/userRepository.js";
-import { messaging } from "firebase-admin";
 
 const profileRepository = new ProfileRepository();
 const userReposiroty = new USerRepository();
@@ -52,9 +51,7 @@ export class ProfileController {
     try {
       const firebaseuid = req.User.uid;
       const getProfile = await profileUSecase.getProfileUSecase(firebaseuid);
-      res.status(201).json({
-        message: "user created successfully",
-      });
+      res.status(201).json(getProfile);
     } catch (error) {
       console.error("Error get the profile", error);
       res.status(500).json({
