@@ -1,8 +1,8 @@
-import { FitnessRepository } from "../Repository/fitnessAssignmentRepository";
+import { FitnessRepository } from "../Repository/fitnessAssignmentRepository.js";
 import { Request, Response } from "express";
-import { FitnessUseCase } from "../UseCase/fitnessAssignmentUsecase";
-import { fitnessAssignmentDto } from "../Dtos/fitnessAssignmentDtos";
-import { USerRepository } from "../Repository/userRepository";
+import { FitnessUseCase } from "../UseCase/fitnessAssignmentUsecase.js";
+import { fitnessAssignmentDto } from "../Dtos/fitnessAssignmentDtos.js";
+import { USerRepository } from "../Repository/userRepository.js";
 
 const fitnessRepository = new FitnessRepository();
 const userRepository = new USerRepository();

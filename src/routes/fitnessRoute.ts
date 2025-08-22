@@ -1,5 +1,5 @@
-import { FitnessController } from "../controllers/fitnessController";
-import { AuthMiddleware } from "../middleware/authMiddleware";
+import { FitnessController } from "../controllers/fitnessController.js";
+import { AuthMiddleware } from "../middleware/authMiddleware.js";
 import { Router } from "express";
 const router = Router();
 const fitnessController = new FitnessController();

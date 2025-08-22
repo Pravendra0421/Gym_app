@@ -1,7 +1,7 @@
-import { ILifeStyleRepository } from "../Repository/lifeStyleHabitsRepository";
-import { LifeStyleHabitEntity } from "../Entity/lifeStyleHabitsEntity";
-import { LifeStyleHabitsDto } from "../Dtos/lifeStyleHabits.Dtos";
-import { IUserRepository } from "../Repository/userRepository";
+import { ILifeStyleRepository } from "../Repository/lifeStyleHabitsRepository.js";
+import { LifeStyleHabitEntity } from "../Entity/lifeStyleHabitsEntity.js";
+import { LifeStyleHabitsDto } from "../Dtos/lifeStyleHabits.Dtos.js";
+import { IUserRepository } from "../Repository/userRepository.js";
 export class LifeStyleUsecase {
   constructor(
     private lifeStyle: ILifeStyleRepository,

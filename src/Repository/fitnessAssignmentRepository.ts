@@ -1,6 +1,6 @@
-import { fitnessAssignmentDto } from "../Dtos/fitnessAssignmentDtos";
-import { fitnessAssignmentEntity } from "../Entity/fitnessAssignmentEntity";
-import prisma from "../lib/prisma";
+import { fitnessAssignmentDto } from "../Dtos/fitnessAssignmentDtos.js";
+import { fitnessAssignmentEntity } from "../Entity/fitnessAssignmentEntity.js";
+import prisma from "../lib/prisma.js";
 
 export interface IFitnessRepository {
   createFitness(

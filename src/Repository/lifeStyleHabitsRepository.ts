@@ -1,6 +1,6 @@
-import prisma from "../lib/prisma";
-import { LifeStyleHabitsDto } from "../Dtos/lifeStyleHabits.Dtos";
-import { LifeStyleHabitEntity } from "../Entity/lifeStyleHabitsEntity";
+import prisma from "../lib/prisma.js";
+import { LifeStyleHabitsDto } from "../Dtos/lifeStyleHabits.Dtos.js";
+import { LifeStyleHabitEntity } from "../Entity/lifeStyleHabitsEntity.js";
 
 export interface ILifeStyleRepository {
   create(

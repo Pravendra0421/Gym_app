@@ -1,7 +1,7 @@
-import { fitnessAssignmentDto } from "../Dtos/fitnessAssignmentDtos";
-import { fitnessAssignmentEntity } from "../Entity/fitnessAssignmentEntity";
-import { FitnessRepository } from "../Repository/fitnessAssignmentRepository";
-import { USerRepository } from "../Repository/userRepository";
+import { fitnessAssignmentDto } from "../Dtos/fitnessAssignmentDtos.js";
+import { fitnessAssignmentEntity } from "../Entity/fitnessAssignmentEntity.js";
+import { FitnessRepository } from "../Repository/fitnessAssignmentRepository.js";
+import { USerRepository } from "../Repository/userRepository.js";
 export class FitnessUseCase {
   constructor(
     private fitnessRepository: FitnessRepository,

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { AuthMiddleware } from "../middleware/authMiddleware";
-import { LifeStyleController } from "../controllers/lifeStyleHabitsController";
+import { AuthMiddleware } from "../middleware/authMiddleware.js";
+import { LifeStyleController } from "../controllers/lifeStyleHabitsController.js";
 
 const router = Router();
 const lifestyleController = new LifeStyleController();

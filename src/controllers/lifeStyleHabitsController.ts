@@ -1,7 +1,7 @@
-import { LifeStyleUsecase } from "../UseCase/lifeStyleHabitsUsecase";
-import { LifeStyleHabitsDto } from "../Dtos/lifeStyleHabits.Dtos";
-import { LifeStyleRepository } from "../Repository/lifeStyleHabitsRepository";
-import { USerRepository } from "../Repository/userRepository";
+import { LifeStyleUsecase } from "../UseCase/lifeStyleHabitsUsecase.js";
+import { LifeStyleHabitsDto } from "../Dtos/lifeStyleHabits.Dtos.js";
+import { LifeStyleRepository } from "../Repository/lifeStyleHabitsRepository.js";
+import { USerRepository } from "../Repository/userRepository.js";
 import { Request, Response } from "express";
 const userRepository = new USerRepository();
 const lifeStyleRepository = new LifeStyleRepository();
