@@ -8,105 +8,10 @@ datasource db {
   url      = env("MONGO_URI")
 }
 
-enum Gender {
-  MALE
-  FEMALE
-  OTHER
-}
-
-enum BodyType {
-  ECTOMORPH
-  MESOMORPH
-  ENDOMORPH
-}
-
-enum DreamBodyShape {
-  ATHLETIC
-  BALANCED
-  STRONG
-}
-
-enum Goal {
-  GAIN_MUSCLE
-  LOSE_WEIGHT
-}
-
-enum FocusArea {
-  VISIBLE_ABS
-  DEFINED_CHEST
-  BIG_ARMS
-  BROAD_SHOULDER
-  WIDE_BACK
-  STRONG_LEGS
-}
-
-enum WorkOut_Experiance {
-  YES_REGULARLY @map("Yes, I work out regularly")
-  YES_LESS      @map("Yes, less than a year ago")
-  YES_MORE      @map("Yes, more than 1 year ago")
-  now           @map("No, I don't have any")
-}
-
-enum Self_Fit {
-  MORE_FIT @map("I'm very fit")
-  FIT      @map("I'm fit")
-  NOT_FIT  @map("I'm not very fit")
-}
-
-enum Self_Active {
-  NOT_ACTIVE      @map("Not active")
-  LIGHT_ACTIVE    @map("Lightly active")
-  MODERATE_ACTIVE @map("Moderately active")
-  HIGHLY_ACTIVE   @map("Highly active")
-}
-
-enum Daily_Walk_Duration {
-  MORE_THAN @map("More than 2 hours")
-  ONE_HOUR  @map("1-2 hours")
-  LESS_THAN @map("Less than 1 hour")
-}
-
-enum Bad_Habits {
-  NOT_SLEEP_ENOUGH @map("I Don't sleep enough")
-  SWEET_TOOTH      @map("I Have a sweet tooth")
-  FAST_FOOD        @map("I enjoy fast food")
-  LATE_NIGHT       @map("I eat late at night")
-  SUGARY_DRINK     @map("I Love sugary drinks")
-}
-
-enum Location_Workout {
-  Home         @map("At home")
-  GYM          @map("At gym")
-  Studio_class @map("Studio classes")
-  Outdoor      @map("Outdoor")
-}
-
-enum EVENT {
-  Vacation
-  Engagement
-  Sport
-  Birthday
-  Other
-}
-
-enum When_Event {
-  one_month     @map("In less than a month")
-  three_month   @map("In less than 3 month")
-  six_month     @map("In less than 6 month")
-  more_six_moth @map("In more than 6 month")
-  Not_Sure      @map("I'm not sure")
-}
-
-enum commit_duration {
-  one_year    @map("At least a year")
-  three_month @map("At least 3 month")
-  one_month   @map("At least a month")
-}
-
 model User {
-  id                     String             @id @default(auto()) @map("_id") @db.ObjectId
-  firebaseUid            String             @unique
-  email                  String             @unique
+  id                     String    @id @default(auto()) @map("_id") @db.ObjectId
+  firebaseUid            String    @unique
+  email                  String    @unique
   gender                 String?
   age                    Int?
   height                 Float?
@@ -145,59 +50,47 @@ model User {
   trainingDays           String[] // List of strings
   remainders             Boolean?
   hearAbout              String?
-  profile                UserProfile?
-  fitnessAssignment      FitnessAssignment?
-  lifeStyleHabits        LifeStyleHabits?
-  createdAt              DateTime           @default(now())
-  updatedAt              DateTime           @updatedAt
+  subscriptionStatus     String    @default("FREE") // Values can be "FREE" or "PREMIUM"
+  subscriptionExpiry     DateTime? // To know when the subscription ends
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
 }
 
-model UserProfile {
-  id             String         @id @default(auto()) @map("_id") @db.ObjectId
-  name           String
-  gender         Gender
-  age            Int
-  height         Float
-  currentWeight  Float
-  targetWeight   Float
-  bodyType       BodyType
-  dreamBodyShape DreamBodyShape
-  goal           Goal
-  focusOn        FocusArea[]
-  userId         String         @unique @db.ObjectId
-  user           User           @relation(fields: [userId], references: [id])
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
+model Exercise {
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  exerciseName         String                 @unique
+  description          String?
+  category             String[]
+  Hints                String?
+  Breathing            String?
+  videoUrl             String?
+  thumbnailUrl         String?
+  imageUrl             String?
+  caloriesBurnedPerRep Int?
+  isPremium            Boolean                @default(false)
+  dailyWorkouts        DailyWorkoutExercise[]
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
 }
 
-model FitnessAssignment {
-  id                      String             @id @default(auto()) @map("_id") @db.ObjectId
-  userId                  String             @unique @db.ObjectId
-  user                    User               @relation(fields: [userId], references: [id])
-  prev_workout_experiance WorkOut_Experiance
-  self_assessed_fitness   Self_Fit
-  self_assessed_activity  Self_Active
-  has_knee_pain           Boolean
-  squat_reps              Int
-  pushup_reps             Int
-  plank_duration_seconds  Int
+model DailyWorkout {
+  id            String                 @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  description   String
+  estimatedTime Int
+  TotalCalories Int?
+  exercises     DailyWorkoutExercise[]
+  // week          WeeklyScheduleDay[]
 }
 
-model LifeStyleHabits {
-  id                       String              @id @default(auto()) @map("_id") @db.ObjectId
-  userId                   String              @unique @db.ObjectId
-  user                     User                @relation(fields: [userId], references: [id])
-  daily_walk_duration      Daily_Walk_Duration
-  bad_habits               Bad_Habits[]
-  lifestyle_satisfaction   Int
-  sleep_duration_hours     Float
-  wake_up_difficulty       String?
-  morning_feeling          String?
-  stress_frequency         String?
-  wants_health_improvement Boolean
-  wants_stress_relief      Boolean
-  workout_location         Location_Workout[]
-  upcoming_event           EVENT
-  when_upcoming_event      When_Event
-  commitment_duration      commit_duration
+model DailyWorkoutExercise {
+  id              String       @id @default(auto()) @map("_id") @db.ObjectId
+  dailyWorkoutId  String       @db.ObjectId
+  dailyWorkout    DailyWorkout @relation(fields: [dailyWorkoutId], references: [id])
+  exerciseId      String       @db.ObjectId
+  exercise        Exercise     @relation(fields: [exerciseId], references: [id])
+  sets            Int?
+  reps            String?
+  durationSeconds Int?
+  order           Int
 }

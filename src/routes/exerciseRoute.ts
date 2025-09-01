@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { ExerciseController } from "../controllers/ExerciseController.js";
+const router = Router();
+const exerciseController = new ExerciseController();
+router.post("/create", exerciseController.createExercise);
+router.get("/getAll", exerciseController.getAllExercise);
+router.get("/get", exerciseController.getExerciseById);
+router.put("/update", exerciseController.updateExercise);
+router.delete("/delete", exerciseController.DeleteExercise);
+export default router;

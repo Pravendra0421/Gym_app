@@ -40,6 +40,8 @@ export interface UserEntity {
   trainingDays: string[];
   remainders: boolean;
   hearAbout?: string;
+  subscriptionStatus: string;
+  subscriptionExpiry?: Date;
   createdAt: string | Date;
   updatedAt: string | Date;
 }

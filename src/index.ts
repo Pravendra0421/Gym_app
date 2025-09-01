@@ -5,6 +5,7 @@ import ConnectDb from "./config/database.js";
 import "./config/firebaseAdmin.js";
 import prisma from "./lib/prisma";
 import authRoutes from "./routes/userRoute.js";
+import exerciseRoutes from "./routes/exerciseRoute.js";
 
 import cors from "cors";
 const app = express();
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/exercise", exerciseRoutes);
 app.get("/", (req: Request, res: Response) => {
   res.send("welcome to the gym");
 });

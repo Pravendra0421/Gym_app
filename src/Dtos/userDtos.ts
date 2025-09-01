@@ -39,4 +39,6 @@ export interface UserDto {
   trainingDays: string[];
   remainders: boolean;
   hearAbout?: string;
+  subscriptionStatus: string;
+  subscriptionExpiry: Date;
 }
