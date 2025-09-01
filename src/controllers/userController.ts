@@ -15,9 +15,11 @@ export class UserControllers {
       const firebaseUser = req.User!;
       // const firebaseUser = dummyUser; // this is only for backend testing
       const userDto: UserDto = {
-        firebaseuid: firebaseUser.uid,
+        firebaseUid: firebaseUser.uid,
         email: firebaseUser.email!,
+        ...req.body,
       };
+      console.log("this the frontend daata", userDto);
       const user = await userUsercase.createUserUSeCase(userDto);
       res.status(201).json(user);
     } catch (error) {

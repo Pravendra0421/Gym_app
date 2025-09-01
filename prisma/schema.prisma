@@ -104,14 +104,52 @@ enum commit_duration {
 }
 
 model User {
-  id                String             @id @default(auto()) @map("_id") @db.ObjectId
-  firebaseUid       String             @unique
-  email             String             @unique
-  profile           UserProfile?
-  fitnessAssignment FitnessAssignment?
-  lifeStyleHabits   LifeStyleHabits?
-  createdAt         DateTime           @default(now())
-  updatedAt         DateTime           @updatedAt
+  id                     String             @id @default(auto()) @map("_id") @db.ObjectId
+  firebaseUid            String             @unique
+  email                  String             @unique
+  gender                 String?
+  age                    Int?
+  height                 Float?
+  currentWeight          Float?
+  bmiStatus              String?
+  goal                   String?
+  bodyType               String?
+  targetWeight           Float?
+  dreamBodyShape         String?
+  focusOn                String[] // List of strings
+  workoutExperiance      String?
+  fitness                String?
+  self_assessed_activity String?
+  knee                   Boolean?
+  squat_reps             String?
+  pushups_reps           String?
+  crunches_reps          String?
+  plank_reps             String?
+  walk_daily             String?
+  badHabit               String[] // List of strings
+  lifeStyle              String?
+  idealWeight            String?
+  sleepTime              String?
+  GetupTime              String?
+  wakeupTime             String?
+  feelStressed           String?
+  motivate               String[] // List of strings
+  workOutPlace           String[] // List of strings
+  excludeloud            String?
+  eventcomingup          String?
+  eventTime              String?
+  commitTime             String?
+  LengthWorkout          Int?
+  profileName            String?
+  planPace               String?
+  trainingDays           String[] // List of strings
+  remainders             Boolean?
+  hearAbout              String?
+  profile                UserProfile?
+  fitnessAssignment      FitnessAssignment?
+  lifeStyleHabits        LifeStyleHabits?
+  createdAt              DateTime           @default(now())
+  updatedAt              DateTime           @updatedAt
 }
 
 model UserProfile {

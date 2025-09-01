@@ -6,7 +6,7 @@ import { UserEntity } from "../Entity/userEntity.js";
 export class UserUseCase {
   constructor(private userRepository: IUserRepository) {}
   async createUserUSeCase(data: UserDto): Promise<UserEntity> {
-    let User = await this.userRepository.findByFirebaseuid(data.firebaseuid);
+    let User = await this.userRepository.findByFirebaseuid(data.firebaseUid);
     if (!User) {
       User = await this.userRepository.create(data);
     }
