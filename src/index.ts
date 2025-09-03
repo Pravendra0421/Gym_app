@@ -10,6 +10,7 @@ import dailyWorkoutRoute from "./routes/dailyWorkoutRoute.js";
 import dailyWorkoutExerciseRoute from "./routes/dailyWorkoutExerciseRoute.js";
 import WorkoutPlanRoute from "./routes/workoutPlanRoute.js";
 import WeeklyScheduleRoute from "./routes/WeeklyScheduleRoute.js";
+import WeeklyScheduleDayRoute from "./routes/WeeklyScheduleDayRoute.js";
 import cors from "cors";
 const app = express();
 
@@ -23,6 +24,7 @@ app.use("/api/daily-workout", dailyWorkoutRoute);
 app.use("/api/daily-workout-exercise", dailyWorkoutExerciseRoute);
 app.use("/api/workout-plan", WorkoutPlanRoute);
 app.use("/api/weekly-schedule", WeeklyScheduleRoute);
+app.use("/api/weekly-scheduleDay", WeeklyScheduleDayRoute);
 app.get("/", (req: Request, res: Response) => {
   res.send("welcome to the gym");
 });
