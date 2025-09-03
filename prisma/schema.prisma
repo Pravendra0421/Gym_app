@@ -80,7 +80,9 @@ model DailyWorkout {
   estimatedTime Int
   TotalCalories Int?
   exercises     DailyWorkoutExercise[]
-  // week          WeeklyScheduleDay[]
+  week          WeeklyScheduleDay[]
+  createdAt     DateTime               @default(now())
+  updatedAt     DateTime               @updatedAt
 }
 
 model DailyWorkoutExercise {
@@ -93,4 +95,31 @@ model DailyWorkoutExercise {
   reps            String?
   durationSeconds Int?
   order           Int
+}
+
+model WorkoutPlan {
+  id              String           @id @default(auto()) @map("_id") @db.ObjectId
+  name            String //weight loss starter
+  durationInWeeks Int
+  difficulty      String
+  isPremium       Boolean          @default(false)
+  weeklySchedules WeeklySchedule[]
+  // assignments     UserPlanAssignment[]
+}
+
+model WeeklySchedule {
+  id         String              @id @default(auto()) @map("_id") @db.ObjectId
+  planId     String              @db.ObjectId
+  plan       WorkoutPlan         @relation(fields: [planId], references: [id])
+  weekNumber Int
+  days       WeeklyScheduleDay[]
+}
+
+model WeeklyScheduleDay {
+  id               String         @id @default(auto()) @map("_id") @db.ObjectId
+  weeklyScheduleId String         @db.ObjectId
+  weeklySchedule   WeeklySchedule @relation(fields: [weeklyScheduleId], references: [id])
+  dayOfWeek        String
+  dailyWorkoutId   String         @db.ObjectId
+  dailyWorkout     DailyWorkout   @relation(fields: [dailyWorkoutId], references: [id])
 }

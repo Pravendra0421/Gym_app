@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { DailyWorkoutController } from "../controllers/DailyWorkoutController.js";
+const router = Router();
+const routerController = new DailyWorkoutController();
+router.post("/create", routerController.createDailyWorkout);
+router.get("/getAll", routerController.getAllDailyWorkout);
+router.get("/:dailyWorkoutId", routerController.getDailyWorkoutId);
+router.put("/:dailyWorkoutId", routerController.updateDailyWorkout);
+router.delete("/:dailyWorkoutId", routerController.DeleteWorkoutPlan);
+export default router;

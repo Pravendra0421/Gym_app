@@ -10,4 +10,6 @@ export interface ExerciseEntity {
   imageUrl?: string;
   caloriesBurnedPerRep?: number;
   isPremium: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 }

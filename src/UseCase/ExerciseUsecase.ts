@@ -9,7 +9,7 @@ export class ExerciseUsecases {
     return Exercise;
   }
   async updateExercise(
-    data: ExerciseDto,
+    data: Partial<ExerciseDto>,
     ExerciseId: string
   ): Promise<ExerciseEntity> {
     const updateExercise = await this.exerciseRepository.updateExercise(

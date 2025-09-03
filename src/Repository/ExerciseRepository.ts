@@ -3,7 +3,7 @@ import { ExerciseEntity } from "../Entity/ExerciseEntity.js";
 export interface IExerciseRepository {
   createExercise(data: ExerciseDto): Promise<ExerciseEntity>;
   updateExercise(
-    data: ExerciseDto,
+    data: Partial<ExerciseDto>,
     Exerciseid: string
   ): Promise<ExerciseEntity>;
   getExercise(): Promise<ExerciseEntity[]>;
@@ -29,7 +29,7 @@ export class ExerciseRepository implements IExerciseRepository {
     return create as ExerciseEntity;
   }
   async updateExercise(
-    data: ExerciseDto,
+    data: Partial<ExerciseDto>,
     Exerciseid: string
   ): Promise<ExerciseEntity> {
     const update = await prisma.exercise.update({
