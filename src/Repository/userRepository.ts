@@ -19,7 +19,7 @@ export class USerRepository implements IUserRepository {
         trainingDays: data.trainingDays,
       },
     });
-    return createUser;
+    return createUser as UserEntity;
   }
 
   async findByFirebaseuid(firebaseUid: string): Promise<UserEntity> {
@@ -28,6 +28,6 @@ export class USerRepository implements IUserRepository {
         firebaseUid,
       },
     });
-    return findByFireBaseID;
+    return findByFireBaseID as UserEntity;
   }
 }

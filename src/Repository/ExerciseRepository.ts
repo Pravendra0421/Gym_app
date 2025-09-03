@@ -39,11 +39,11 @@ export class ExerciseRepository implements IExerciseRepository {
         ...data,
       },
     });
-    return update;
+    return update as ExerciseEntity;
   }
   async getExercise(): Promise<ExerciseEntity[]> {
     const get = await prisma.exercise.findMany({});
-    return get;
+    return get as ExerciseEntity[];
   }
   async deleteExercise(Exerciseid: string): Promise<void> {
     await prisma.exercise.delete({
@@ -54,6 +54,6 @@ export class ExerciseRepository implements IExerciseRepository {
     const getExercise = await prisma.exercise.findFirst({
       where: { id: ExerciseId },
     });
-    return getExercise;
+    return getExercise as ExerciseEntity;
   }
 }

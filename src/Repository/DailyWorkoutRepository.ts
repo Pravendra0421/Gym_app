@@ -24,7 +24,7 @@ export class WorkoutDailyRepository implements IDailyWorkoutRepository {
         exercises: true,
       },
     });
-    return createWorkout;
+    return createWorkout as DailyWorkoutEntity;
   }
   async updateDailyWorkout(
     data: Partial<DailyWorkoutDto>,
@@ -39,7 +39,7 @@ export class WorkoutDailyRepository implements IDailyWorkoutRepository {
         exercises: true,
       },
     });
-    return updateWorkout;
+    return updateWorkout as DailyWorkoutEntity;
   }
   async getDailyWorkoutByid(Id: string): Promise<DailyWorkoutEntity> {
     const getWorkoutById = await prisma.dailyWorkout.findFirst({
@@ -48,7 +48,7 @@ export class WorkoutDailyRepository implements IDailyWorkoutRepository {
         exercises: true,
       },
     });
-    return getWorkoutById;
+    return getWorkoutById as DailyWorkoutEntity;
   }
   async getAllDailyWorkout(): Promise<DailyWorkoutEntity[]> {
     const getAllWorkout = await prisma.dailyWorkout.findMany({
@@ -56,7 +56,7 @@ export class WorkoutDailyRepository implements IDailyWorkoutRepository {
         exercises: true,
       },
     });
-    return getAllWorkout;
+    return getAllWorkout as DailyWorkoutEntity[];
   }
   async deleteDailyWorkout(Id: string): Promise<void> {
     await prisma.dailyWorkout.delete({

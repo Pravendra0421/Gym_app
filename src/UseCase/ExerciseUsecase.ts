@@ -22,7 +22,7 @@ export class ExerciseUsecases {
     const getExercise = await this.exerciseRepository.getExercise();
     return getExercise;
   }
-  async getExerciseById(ExerciseId: string): Promise<ExerciseEntity> {
+  async getExerciseById(ExerciseId: string): Promise<ExerciseEntity | null> {
     const getExercise = await this.exerciseRepository.getExerciseById(
       ExerciseId
     );

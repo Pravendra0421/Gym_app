@@ -39,7 +39,7 @@ export class WorkoutPlanRepository implements IWorkoutPlanRepository {
     const getWorkoutById = await prisma.workoutPlan.findFirst({
       where: { id: Id },
     });
-    return getWorkoutById;
+    return getWorkoutById as WorkoutPlanEntity;
   }
   async getAllWorkoutPlan(): Promise<WorkoutPlanEntity[]> {
     const getAllWorkoutPlan = await prisma.workoutPlan.findMany({});

@@ -1,6 +1,6 @@
 import { dailyWorkoutExerciseDto } from "../Dtos/dailyWorkoutExerciseDtos.js";
 import { dailyWorkoutExerciseEntity } from "../Entity/dailyWorkoutExerciseEntity.js";
-import prisma from "../lib/prisma";
+import prisma from "../lib/prisma.js";
 
 export interface IDailyWorkoutExerciseRepository {
   createDailyExercise(
@@ -37,7 +37,7 @@ export class DailyWorkoutExerciseRepository
         exercise: true,
       },
     });
-    return createDailyWorkout;
+    return createDailyWorkout as dailyWorkoutExerciseEntity;
   }
   async updateDailyExercise(
     data: Partial<dailyWorkoutExerciseDto>,
@@ -56,7 +56,7 @@ export class DailyWorkoutExerciseRepository
         exercise: true,
       },
     });
-    return updateDailyWorkout;
+    return updateDailyWorkout as dailyWorkoutExerciseEntity;
   }
   async getDailyWorkoutExercise(
     dailyWorkoutExerciseId: string
@@ -69,7 +69,7 @@ export class DailyWorkoutExerciseRepository
         },
       }
     );
-    return getDailyWorkoutExercise;
+    return getDailyWorkoutExercise as dailyWorkoutExerciseEntity;
   }
   async getAllDailyWorkoutExercise(): Promise<dailyWorkoutExerciseEntity[]> {
     const getAll = await prisma.dailyWorkoutExercise.findMany({
@@ -77,7 +77,7 @@ export class DailyWorkoutExerciseRepository
         exercise: true,
       },
     });
-    return getAll;
+    return getAll as dailyWorkoutExerciseEntity[];
   }
   async deleteDailyWorkoutExercise(
     dailyWorkoutExerciseId: string

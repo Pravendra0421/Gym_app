@@ -3,7 +3,7 @@ dotenv.config();
 import express, { Request, Response } from "express";
 import ConnectDb from "./config/database.js";
 import "./config/firebaseAdmin.js";
-import prisma from "./lib/prisma";
+import prisma from "./lib/prisma.js";
 import authRoutes from "./routes/userRoute.js";
 import exerciseRoutes from "./routes/exerciseRoute.js";
 import dailyWorkoutRoute from "./routes/dailyWorkoutRoute.js";
