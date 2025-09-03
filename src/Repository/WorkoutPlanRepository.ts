@@ -1,5 +1,6 @@
 import { WorkoutPlanDto } from "../Dtos/WorkoutPlanDtos.js";
 import { WorkoutPlanEntity } from "../Entity/WorkoutPlanEntity.js";
+import prisma from "../lib/prisma.js";
 export interface IWorkoutPlanRepository {
   createWorkoutPlan(data: WorkoutPlanDto): Promise<WorkoutPlanEntity>;
   updateWorkoutPlan(

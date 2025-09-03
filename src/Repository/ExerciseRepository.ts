@@ -1,5 +1,6 @@
 import { ExerciseDto } from "../Dtos/ExerciseDtos.js";
 import { ExerciseEntity } from "../Entity/ExerciseEntity.js";
+import prisma from "../lib/prisma.js";
 export interface IExerciseRepository {
   createExercise(data: ExerciseDto): Promise<ExerciseEntity>;
   updateExercise(
