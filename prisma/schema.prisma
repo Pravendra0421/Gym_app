@@ -9,9 +9,9 @@ datasource db {
 }
 
 model User {
-  id                     String    @id @default(auto()) @map("_id") @db.ObjectId
-  firebaseUid            String    @unique
-  email                  String    @unique
+  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
+  firebaseUid            String   @unique
+  email                  String   @unique
   gender                 String?
   age                    Int?
   height                 Float?
@@ -50,10 +50,14 @@ model User {
   trainingDays           String[] // List of strings
   remainders             Boolean?
   hearAbout              String?
-  subscriptionStatus     String    @default("FREE") // Values can be "FREE" or "PREMIUM"
-  subscriptionExpiry     DateTime? // To know when the subscription ends
-  createdAt              DateTime  @default(now())
-  updatedAt              DateTime  @updatedAt
+  workoutDuration        String   @default("10-15 min")
+  warmupDuration         String   @default("3 min") // 3min
+  recoveryDuration       String   @default("5-10 min")
+
+  subscriptionStatus String    @default("FREE") // Values can be "FREE" or "PREMIUM"
+  subscriptionExpiry DateTime? // To know when the subscription ends
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
 }
 
 model Exercise {
@@ -97,6 +101,37 @@ model DailyWorkoutExercise {
   order           Int
 }
 
+model FitnessCategory {
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  name            String            @unique
+  description     String
+  mainWorkoutPlan MainWorkoutPlan[]
+}
+
+model MainWorkoutPlan {
+  id                String          @id @default(auto()) @map("_id") @db.ObjectId
+  name              String
+  cardio            Int? // rank between 1 to 5
+  Strength          Int? // rank bteween 1 to 5
+  durationInWeeks   Int
+  fitnessCategoryId String          @unique @db.ObjectId
+  fitnessCategory   FitnessCategory @relation(fields: [fitnessCategoryId], references: [id])
+  willAchieve       String[]
+  howAchieve        String[]
+  planOverview      PlanOverview[]
+  // workoutPlan     WorkoutPlan?
+}
+
+model PlanOverview {
+  id                String          @id @default(auto()) @map("_id") @db.ObjectId
+  timeInWeek        String
+  name              String
+  description       String
+  videoUrl          String[]
+  mainWorkoutPlanId String          @db.ObjectId
+  mainWorkoutPlan   MainWorkoutPlan @relation(fields: [mainWorkoutPlanId], references: [id])
+}
+
 model WorkoutPlan {
   id              String           @id @default(auto()) @map("_id") @db.ObjectId
   name            String //weight loss starter
@@ -104,6 +139,8 @@ model WorkoutPlan {
   difficulty      String
   isPremium       Boolean          @default(false)
   weeklySchedules WeeklySchedule[]
+  // mainWorkoutPlanId String           @db.ObjectId @unique
+  // mainWorkoutPlan   MainWorkoutPlan  @relation(fields: [mainWorkoutPlanId], references: [id])
   // assignments     UserPlanAssignment[]
 }
 

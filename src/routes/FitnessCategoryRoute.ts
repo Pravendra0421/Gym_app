@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { FitnessCategoryController } from "../controllers/FitnessCategoryController.js";
+const routerController = new FitnessCategoryController();
+const router = Router();
+router.post("/create", routerController.createFitnessCategory);
+router.put("/:fitnessCategoryId", routerController.updateFitnessCategory);
+router.get("/getAll", routerController.getAllFitnessCategory);
+router.get("/:fitnessCategoryId", routerController.getFitnessCategory);
+router.delete("/:fitnessCategoryId", routerController.deleteFitnessCategory);
+export default router;

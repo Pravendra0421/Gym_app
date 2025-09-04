@@ -11,6 +11,9 @@ import dailyWorkoutExerciseRoute from "./routes/dailyWorkoutExerciseRoute.js";
 import WorkoutPlanRoute from "./routes/workoutPlanRoute.js";
 import WeeklyScheduleRoute from "./routes/WeeklyScheduleRoute.js";
 import WeeklyScheduleDayRoute from "./routes/WeeklyScheduleDayRoute.js";
+import FitnessCategoryReoute from "./routes/FitnessCategoryRoute.js";
+import MainWorkoutPlanRoute from "./routes/MainWorkoutPlanRoute.js";
+import PlanOverviewRoute from "./routes/PlanoverviewRoute.js";
 import cors from "cors";
 const app = express();
 
@@ -25,6 +28,9 @@ app.use("/api/daily-workout-exercise", dailyWorkoutExerciseRoute);
 app.use("/api/workout-plan", WorkoutPlanRoute);
 app.use("/api/weekly-schedule", WeeklyScheduleRoute);
 app.use("/api/weekly-scheduleDay", WeeklyScheduleDayRoute);
+app.use("/api/fitness-category", FitnessCategoryReoute);
+app.use("/api/main-workout-plan", MainWorkoutPlanRoute);
+app.use("/api/plan-overview", PlanOverviewRoute);
 app.get("/", (req: Request, res: Response) => {
   res.send("welcome to the gym");
 });

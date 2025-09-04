@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { PlanOverviewController } from "../controllers/PlanOverviewController.js";
+const routerController = new PlanOverviewController();
+const router = Router();
+router.post("/:mainWorkoutPlanId", routerController.createPlanOverview);
+router.put("/:PlanOverviewId", routerController.updatePlanOverview);
+router.get("/:mainWorkoutPlanId", routerController.getAllPlanOverview);
+// router.get("/:PlanOverviewId", routerController.getPlanOverview);
+router.delete("/:PlanOverviewId", routerController.DeletePlanOverview);
+export default router;
