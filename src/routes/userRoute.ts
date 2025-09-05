@@ -4,5 +4,6 @@ import { UserControllers } from "../controllers/userController.js";
 const router = Router();
 const userController = new UserControllers();
 router.post("/user", AuthMiddleware, userController.createUser);
+router.post("/update", AuthMiddleware, userController.updateUser);
 // router.post("/user", userController.createUser); //this is only for backend testing
 export default router;

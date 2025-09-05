@@ -46,6 +46,7 @@ model User {
   commitTime             String?
   LengthWorkout          Int?
   profileName            String?
+  profileImage           String?
   planPace               String?
   trainingDays           String[] // List of strings
   remainders             Boolean?

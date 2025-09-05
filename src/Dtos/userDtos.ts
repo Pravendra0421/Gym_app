@@ -35,10 +35,25 @@ export interface UserDto {
   commitTime?: string;
   LengthWorkout?: number;
   profileName?: string;
+  profileImage?: string;
   planPace?: string;
   trainingDays: string[];
   remainders: boolean;
   hearAbout?: string;
   subscriptionStatus: string;
   subscriptionExpiry: Date;
+  workoutDuration: string;
+  warmupDuration: string;
+  recoveryDuration: string;
+}
+export interface UserUpdateDto {
+  trainingDays: string[];
+  workoutDuration: string;
+  warmupDuration: string;
+  recoveryDuration: string;
+  gender?: string;
+  height?: number;
+  goal?: string;
+  knee?: boolean;
+  profileImage?: string;
 }

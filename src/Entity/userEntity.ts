@@ -36,12 +36,27 @@ export interface UserEntity {
   commitTime?: string;
   LengthWorkout?: number;
   profileName?: string;
+  profileImage?: string;
   planPace?: string;
   trainingDays: string[];
   remainders: boolean;
   hearAbout?: string;
   subscriptionStatus: string;
   subscriptionExpiry?: Date;
+  workoutDuration: string;
+  warmupDuration: string;
+  recoveryDuration: string;
   createdAt: string | Date;
   updatedAt: string | Date;
+}
+export interface UserUpdateEntity {
+  trainingDays: string[];
+  workoutDuration: string;
+  warmupDuration: string;
+  recoveryDuration: string;
+  gender?: string;
+  height?: number;
+  goal?: string;
+  knee?: boolean;
+  profileImage?: string;
 }
